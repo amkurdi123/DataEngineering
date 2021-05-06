@@ -1,0 +1,3 @@
+docker run --name nifi -p 8080:8181 -d  apache/nifi:latest  -v ${HOME}/nifi-work/:/opt/nifi/nifi-current/work
+docker run -d --name my-postgres -e POSTGRES_PASSWORD=postgres -v ${HOME}/postgres-data/:/var/lib/postgresql/data -p 5432:5432 postgres
+docker run -p 80:80 -e 'PGADMIN_DEFAULT_EMAIL=user@domain.local' -e 'PGADMIN_DEFAULT_PASSWORD=SuperSecret' --name dev-pgadmin -d dpage/pgadmin4
