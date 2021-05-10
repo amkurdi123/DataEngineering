@@ -49,18 +49,13 @@ def generate_dummy_data():
 def load_into_postgres():
 
 
-    try:
-        connection = psycopg2.connect(user = "airflow",
-                                  password = "airflow",
-                                  host = "172.18.0.4",
-                                  port = "5432",
-                                  database = "postgres")
-    except:
-        connection = psycopg2.connect(user = "airflow",
-                                  password = "airflow",
-                                  host = "172.18.0.6",
-                                  port = "5432",
-                                  database = "postgres")
+    
+    connection = psycopg2.connect(user = "airflow",
+                                password = "airflow",
+                                host = "postgres",
+                                port = "5432",
+                                database = "postgres")
+    
     cursor = connection.cursor()
 
 
@@ -85,18 +80,12 @@ def load_into_postgres():
 ###################################### Extracting Data - Canada #########################################################################################################
 
 def extract_from_postgres_canada():
-    try:
-        connection = psycopg2.connect(user = "airflow",
-                                  password = "airflow",
-                                  host = "172.18.0.4",
-                                  port = "5432",
-                                  database = "postgres")
-    except:
-        connection = psycopg2.connect(user = "airflow",
-                                  password = "airflow",
-                                  host = "172.18.0.6",
-                                  port = "5432",
-                                  database = "postgres")
+    connection = psycopg2.connect(user = "airflow",
+                                password = "airflow",
+                                host = "postgres",
+                                port = "5432",
+                                database = "postgres")
+    
     cursor = connection.cursor()
     sql = "COPY (SELECT * FROM data_set WHERE country = 'Canada') TO STDOUT WITH CSV HEADER "
     try:
@@ -112,18 +101,12 @@ def extract_from_postgres_canada():
 ###################################### Extracting Data - Brazil #####################################################################################################
 
 def extract_from_postgres_brazil():
-    try:
-        connection = psycopg2.connect(user = "airflow",
-                                  password = "airflow",
-                                  host = "172.18.0.4",
-                                  port = "5432",
-                                  database = "postgres")
-    except:
-        connection = psycopg2.connect(user = "airflow",
-                                  password = "airflow",
-                                  host = "172.18.0.6",
-                                  port = "5432",
-                                  database = "postgres")
+    connection = psycopg2.connect(user = "airflow",
+                                password = "airflow",
+                                host = "postgres",
+                                port = "5432",
+                                database = "postgres")
+    
     cursor = connection.cursor()
     sql = "COPY (SELECT * FROM data_set WHERE country = 'Brazil') TO STDOUT WITH CSV HEADER "
     try:
@@ -139,18 +122,12 @@ def extract_from_postgres_brazil():
 ###################################### Extracting Data - Ghana #######################################################################################################
 
 def extract_from_postgres_ghana():
-    try:
-        connection = psycopg2.connect(user = "airflow",
-                                  password = "airflow",
-                                  host = "172.18.0.4",
-                                  port = "5432",
-                                  database = "postgres")
-    except:
-        connection = psycopg2.connect(user = "airflow",
-                                  password = "airflow",
-                                  host = "172.18.0.6",
-                                  port = "5432",
-                                  database = "postgres")
+    connection = psycopg2.connect(user = "airflow",
+                                password = "airflow",
+                                host = "postgres",
+                                port = "5432",
+                                database = "postgres")
+    
     cursor = connection.cursor()
     sql = "COPY (SELECT * FROM data_set WHERE country = 'Ghana') TO STDOUT WITH CSV HEADER "
     try:
